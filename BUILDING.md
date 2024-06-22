@@ -162,14 +162,6 @@ Noteworthy CMake variables that you can use:
 - `-DBUILD_WITH_QT6=<ON|OFF>` - selects the target Qt major version. By default
   it's `ON` (Qt 6 is preferred); set it to `OFF` to build with Qt 5 (which is
   generally discouraged; Quaternion 0.0.96 is the last release to support it).
-- `-DQuotient_ENABLE_E2EE=<ON|OFF>` - for compiling with/without E2EE support.
-  Normally you don't need to touch this variable; setting it has no effect when
-  you compile with external libQuotient, and it is `ON` by default when building
-  Quaternion with in-tree libQuotient. The only reason you would want to turn it
-  off is when you can't provide the dependencies needed for E2EE: libolm and
-  OpenSSL. Even if E2EE support is switched on, you still have to explicitly
-  tick the E2EE box whenever you log in to each account; when E2EE support is
-  off there will be no E2EE box at all.
 
 ### Install
 In the root directory of the project sources: `cmake --build build_dir --target install`.

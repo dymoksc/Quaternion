@@ -119,7 +119,6 @@ jobs:
         echo "CMAKE_ARGS=-GNinja -DCMAKE_BUILD_TYPE=RelWithDebInfo \
               ${{ runner.os != 'Linux' && '-DCMAKE_MAKE_PROGRAM=$IQTA_TOOLS/Ninja/ninja' || '' }} \
               -DCMAKE_PREFIX_PATH=~/.local \
-              -DQuotient_ENABLE_E2EE=ON \
               ${{ runner.os == 'macOS' && '-DOPENSSL_ROOT_DIR=`brew --prefix openssl`' ||
                   runner.os == 'Windows' && '-DOPENSSL_ROOT_DIR=$IQTA_TOOLS/OpenSSLv3/Win_x64/' || '' }} \
               -DBUILD_SHARED_LIBS=${{ matrix.composition == 'dynamic' }} \

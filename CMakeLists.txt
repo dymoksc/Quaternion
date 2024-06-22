@@ -101,7 +101,6 @@ endif()
 set(QUOTIENT_FORCE_NAMESPACED_INCLUDES 1)
 if ((NOT DEFINED USE_INTREE_LIBQMC OR USE_INTREE_LIBQMC)
         AND EXISTS ${PROJECT_SOURCE_DIR}/lib/Quotient/util.h)
-    option(Quotient_ENABLE_E2EE "end-to-end-encryption (E2EE) support (BETA)" ON)
     add_subdirectory(lib)
     if (NOT DEFINED USE_INTREE_LIBQMC)
         set (USE_INTREE_LIBQMC 1)
@@ -228,7 +227,7 @@ add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
     ${quaternion_SRCS} ${quaternion_QM}
     ${quaternion_WINRC} ${${PROJECT_NAME}_MAC_ICON})
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     GIT_SHA1="${GIT_SHA1}" LIB_GIT_SHA1="${LIB_GIT_SHA1}")
@@ -240,7 +239,7 @@ target_link_libraries(${PROJECT_NAME} ${QUOTIENT}
     ${Qt}::Widgets ${Qt}::Quick ${Qt}::Qml ${Qt}::Gui ${Qt}::Network ${Qt}::QuickControls2 ${Qt}::QuickWidgets)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    CXX_STANDARD 20
+    CXX_STANDARD 23
     CXX_EXTENSIONS OFF
     VISIBILITY_INLINES_HIDDEN ON
     CXX_VISIBILITY_PRESET hidden
