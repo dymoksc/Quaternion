@@ -336,11 +336,15 @@ class InviteeList : public QListWidget
         {
             if (event->key() ==  Qt::Key_Delete)
                 delete takeItem(currentRow());
+            else
+                QListWidget::keyPressEvent(event);
         }
         void mousePressEvent(QMouseEvent* event) override
         {
             if (event->button() == Qt::MiddleButton)
                 delete takeItem(currentRow());
+            else
+                QListWidget::mousePressEvent(event);
         }
 };
 
@@ -353,7 +357,7 @@ CreateRoomDialog::CreateRoomDialog(Quotient::AccountRegistry* accounts,
     , nextInvitee(new NextInvitee)
     , inviteButton(
           new QPushButton(tr("Add", "Add a user to the list of invitees")))
-    , invitees(new QListWidget)
+    , invitees(new InviteeList)
 {
     Q_ASSERT(!accounts->empty());
 
